@@ -16,7 +16,7 @@ struct Student {
     vector<Discipline> disc;
 };
 
-// Ввод данных студента
+//Ввод данных студента
 void readStudent(Student& s, const vector<string>& names, int num) {
     cout << endl << "Студент №" << num << endl;
     cout << "ФИО: ";
@@ -39,7 +39,7 @@ void readStudent(Student& s, const vector<string>& names, int num) {
     }
 }
 
-// Вывод данных студента
+//Вывод данных студента
 void printStudent(const Student& s) {
     int sum = 0;
 
@@ -54,7 +54,7 @@ void printStudent(const Student& s) {
          << (1.0 * sum / s.disc.size()) << endl;
 }
 
-// Вычисление среднего балла
+//Вычисление среднего балла
 double avg(const Student& s) {
     int sum = 0;
 
