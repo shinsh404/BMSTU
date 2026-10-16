@@ -14,7 +14,7 @@ double f(double x) {
 double trap(double a, double b, int n) {
     double h = (b - a) / n;
     double sum = (f(a) + f(b)) / 2.0;
-
+    //Складываем значения функции во внутренних точках
     for (int i = 1; i < n; i++) {
         double x = a + i * h;
         sum += f(x);
@@ -33,11 +33,11 @@ double Integ(double eps) {
     double previous = trap(a, b, n);
 
     while (n < max_n) {
-        n *= 2;
+        n *= 2;//Увеличиваем количество участков вдвое
 
         double current = trap(a, b, n);
         double error = abs(current - previous) / 3.0;
-
+        //Проверяем, достигнута ли нужная точность
         if (error < eps) {
             return current;
         }
@@ -53,7 +53,7 @@ int main() {
     cout << fixed << setprecision(10);
 
     double epsilons[] = {0.01, 0.0001, 0.000001};
-
+    //Вычисляем интеграл для каждой заданной точности
     for (double eps : epsilons) {
         double result = Integ(eps);
 
