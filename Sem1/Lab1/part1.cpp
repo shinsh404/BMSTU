@@ -5,12 +5,12 @@
 
 using namespace std;
 
-// Подынтегральная функция
+//Подынтегральная функция
 double f(double x) {
     return exp(x) * (1 + sin(x)) / (1 + cos(x));
 }
 
-// Вычисление интеграла методом трапеций
+//Вычисление интеграла методом трапеций
 double trap(double a, double b, int n) {
     double h = (b - a) / n;
     double sum = (f(a) + f(b)) / 2.0;
@@ -23,7 +23,7 @@ double trap(double a, double b, int n) {
     return sum * h;
 }
 
-// Вычисление с заданной точностью
+//Вычисление с заданной точностью
 double Integ(double eps) {
     const double a = 0.0;
     const double b = 2.0;
