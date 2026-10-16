@@ -5,12 +5,12 @@
 #include <windows.h>
 
 using namespace std;
-
+//Структура для хранения названия дисциплины и оценки
 struct Discipline {
     string name;
     int mark;
 };
-
+//Структура для хранения данных студента
 struct Student {
     string fio;
     vector<Discipline> disc;
@@ -25,7 +25,7 @@ void readStudent(Student& s, const vector<string>& names, int num) {
     for (const string& nm : names) {
         Discipline d;
         d.name = nm;
-
+        //Проверяем, чтобы оценка была от 2 до 5
         do {
             cout << "Балл по дисциплине " << nm << " (2-5): ";
             cin >> d.mark;
@@ -39,7 +39,7 @@ void readStudent(Student& s, const vector<string>& names, int num) {
     }
 }
 
-//Вывод данных студента
+//Вывод данных студента и его среднего балла
 void printStudent(const Student& s) {
     int sum = 0;
 
@@ -99,6 +99,7 @@ int main() {
 
     vector<Student> st(n);
 
+    //Заполняем данные всех студентов
     for (int i = 0; i < n; i++) {
         readStudent(st[i], names, i + 1);
     }
@@ -108,7 +109,7 @@ int main() {
     for (const Student& s : st) {
         printStudent(s);
     }
-
+    //Находим наибольший средний балл
     double mx = avg(st[0]);
 
     for (int i = 1; i < n; i++) {
@@ -119,7 +120,7 @@ int main() {
 
     cout << endl << "Студенты с наибольшим средним баллом" << endl;
     cout << "   Наибольший средний балл: " << fixed << setprecision(2) << mx << endl;
-
+    //Выводим всех студентов с максимальным средним баллом
     for (const Student& s : st) {
         if (avg(s) == mx) {
             printStudent(s);
