@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <windows.h>
 using namespace std;
 
 // Базовый класс "Школа"
@@ -57,6 +57,8 @@ public:
 };
 
 int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     // Создаем по одному объекту каждого класса
     School s("Школа № 12", 650);
     SpecSchool sp("Лицей № 1", 420, "Физика и математика");
