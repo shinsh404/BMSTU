@@ -29,7 +29,7 @@
 
 ## 1.3. Текст программы с комментариями
 
-### Файл `Part1_Vector/vector.h`
+### Файл `part1/vector.h`
 
 ```cpp
 #ifndef VECTOR_H
@@ -71,7 +71,7 @@ istream& operator>>(istream& is, Vector& v);
 #endif
 ```
 
-### Файл `Part1_Vector/vector.cpp`
+### Файл `part1/vector.cpp`
 
 ```cpp
 #include "vector.h"
@@ -246,18 +246,20 @@ istream& operator>>(istream& is, Vector& v) {
 }
 ```
 
-### Файл `Part1_Vector/main.cpp`
+### Файл `part1/main.cpp`
 
 ```cpp
 #include <iostream>
 #include <fstream>
 #include <utility>
-
+#include <windows.h>
 #include "vector.h"
 
 using namespace std;
 
 int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     // Открываем файлы для чтения и записи
     ifstream in("input.txt");
     ofstream out("output.txt");
@@ -420,13 +422,13 @@ int main() {
 
 ## 2.3. Текст программы с комментариями
 
-### Файл `Part2_Inheritance/main.cpp`
+### Файл `part2/main.cpp`
 
 ```cpp
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <windows.h>
 using namespace std;
 
 // Базовый класс "Школа"
@@ -482,11 +484,13 @@ public:
 };
 
 int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     // Создаем по одному объекту каждого класса
     School s("Школа № 12", 650);
     SpecSchool sp("Лицей № 1", 420, "Физика и математика");
 
-    cout << "=== ВЫЗОВ ФУНКЦИЙ ОБЪЕКТОВ ===" << endl;
+    cout << "  ВЫЗОВ ФУНКЦИЙ ОБЪЕКТОВ  " << endl;
 
     cout << endl << "Обычная школа:" << endl;
     s.print();
@@ -497,7 +501,7 @@ int main() {
     // Создаем указатель базового класса
     School* p = &sp;
 
-    cout << endl << "=== СТАТИЧЕСКОЕ СВЯЗЫВАНИЕ ===" << endl;
+    cout << endl << "  СТАТИЧЕСКОЕ СВЯЗЫВАНИЕ  " << endl;
 
     cout << "Вызов функции объекта специализированной школы:" << endl;
     sp.printStatic();
@@ -508,7 +512,7 @@ int main() {
     // Здесь вызывается функция базового класса,
     // потому что printStatic не объявлена виртуальной.
 
-    cout << endl << "=== ДИНАМИЧЕСКИЙ ПОЛИМОРФИЗМ ===" << endl;
+    cout << endl << "  ДИНАМИЧЕСКИЙ ПОЛИМОРФИЗМ  " << endl;
 
     // Вызывается функция реального типа объекта
     p->print();
@@ -516,7 +520,7 @@ int main() {
     // Создаем вектор указателей на объекты обоих классов
     vector<School*> v = {&s, &sp};
 
-    cout << endl << "=== СПИСОК ВСЕХ ШКОЛ ===" << endl;
+    cout << endl << "  СПИСОК ВСЕХ ШКОЛ  " << endl;
 
     for (School* q : v) {
         q->print();
