@@ -1,12 +1,14 @@
 #include <iostream>
 #include <fstream>
 #include <utility>
-
+#include <windows.h>
 #include "vector.h"
 
 using namespace std;
 
 int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     // Открываем файлы для чтения и записи
     ifstream in("input.txt");
     ofstream out("output.txt");
