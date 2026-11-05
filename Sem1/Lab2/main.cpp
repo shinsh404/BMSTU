@@ -4,7 +4,7 @@
 #include <string>
 #include <limits>
 #include <clocale>
-
+#include <windows.h>
 using namespace std;
 
 // Структура для хранения сведений о пассажирском самолёте.
@@ -172,6 +172,8 @@ bool readBinary(const string& filename, vector<Airplane>& airplanes) {
 
 int main(int argc, char* argv[]) {
     setlocale(LC_ALL, "");
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
 
     // Проверка количества аргументов командной строки.
     if (argc != 4) {
