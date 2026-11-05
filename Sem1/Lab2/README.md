@@ -62,10 +62,6 @@ lab2 write binary airplanes.dat
 lab2 read binary airplanes.dat
 ```
 
-Если программа запускается в CLion, эти аргументы нужно указать в поле **Run → Edit Configurations → Program arguments**. Например:
-```text
-read text airplanes.txt
-```
 
 Для записи нужно выбрать `write` вместо `read`. При записи программа запросит количество самолётов и характеристики каждого из них.
 
